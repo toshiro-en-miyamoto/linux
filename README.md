@@ -1,2 +1,2 @@
-# ubuntu
-ubuntu linux
+# Linux
+almost ubuntu linux
