@@ -13,8 +13,8 @@
 
 ### Git
 - `$ sudo apt install git`
-- `$ git config --global user.email "your mail.addr"
-- `$ git config --global user.name "Your Name"
+- `$ git config --global user.email "your mail.addr"`
+- `$ git config --global user.name "Your Name"`
 
 ### Editor - Ghost Writer
 - `$sudo apt install ghostwriter`
