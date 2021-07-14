@@ -21,13 +21,13 @@
 
 ### Editor - Atom (amd64 only)
 
-- '$ sudo snap install atom --classic'
+- `$ sudo snap install atom --classic`
 - Editor Settings > Tab Length: 2 by default
 - install the platformio-ide-terminal package
 
 ## Web Browsers for Developers
 
-### Firefox Developer Edition
+### Firefox Developer Edition (amd64 only)
 - download the package
 
   - access [the Mozilla site](`https://www.mozilla.org/en-US/firefox/developer/`) with your web browser to download a tar file
@@ -37,8 +37,8 @@
 - the desktop shortcut
 
   - `$ cd /usr/share/applications`
-  - `$ cp firefox.desktop firefox-developer.desktop`
-  - `$ chmod +x firefox-developer.desktop`
+  - `$ sudo cp firefox.desktop firefox-developer.desktop`
+  - `$ sudo chmod +x firefox-developer.desktop`
   - change items in the `firefox-developer.desktop`
     - `[Desktop Entry]`
       - `Name=Firefox Developer Edition`
@@ -65,4 +65,23 @@
 - `$ rustc --version`
 - `$ cargo --version`
 
+## Flutter
 
+### Prerequisites
+- `$ sudo apt install curl`
+- `$ sudo apt install xz-utils`
+- `$ sudo apt install libglu1-mesa`
+
+### Flutter SDK
+- `$ sudo snap install flutter --classic`
+- `$ flutter sdk-path`
+  - downloads Dart SDK
+  - builds flutter tools such as Framework and Engine
+- `$ flutter doctor`
+  - downloads Material fonts, Gradle Wrapper, `sky_engine`, `linux-arm64` tools, `linux-arm64/font-subset` tools
+  - [✔️] Flutter (Channel master, 2.4.0-5.0.pre.47, on Ubuntu 21.04...)
+  - [✖️] Chrome - develop for the web (cannot find Chrome executable...)
+  - [✖️] Flutter IDE Support (No supported IDEs installed)
+  - [!] Connected device -- No devices available
+
+### Android Studio (amd64 only)
