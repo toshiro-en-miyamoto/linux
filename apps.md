@@ -51,10 +51,4 @@ Refer to [git credential storage](https://git-scm.com/book/en/v2/Git-Tools-Crede
   - log out and log in to activate the changes
   - you will be able see the blue Firefox icon in the Activities (click the nine-dot icon at the end of the Favorite Apps bar)
 
-## Rust
-- `$ sudo apt install curl`, if required
-- `$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh`
-- your `.bashrc` will be modified to add `~.cargo/bin` to $PATH, so close the terminal and open another
-- `$ rustc --version`
-- `$ cargo --version`
 
