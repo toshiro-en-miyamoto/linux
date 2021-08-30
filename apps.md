@@ -17,11 +17,16 @@ Refer to [git credential storage](https://git-scm.com/book/en/v2/Git-Tools-Crede
 - `$ git config --global user.email "your mail.addr"`
 - `$ git config --global user.name "Your Name"`
 - `$ git config --global credential.helper store`
-- `$ git credential-store --file ~/.git-credentials store`
-  - `protocol=https`
-  - `host=github.com`
-  - `username=`your username at github
-  - `password=`the password
+
+Refer to [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
+- `$ ssh-keygen -t ed25519 -C "your_email@example.com"
+- `$ eval "$(ssh-agent -s)"`
+- `$ ssh-add ~/.ssh/id_ed25519`
+- `$ sudo apt-get install xclip`, if not done
+- `$ xclip -selection clipboard < ~/.ssh/id_ed25519.pub`
+- add the key in your account
+- use ssh: to clone repositories
+
 
 ## C++ compilers
 
