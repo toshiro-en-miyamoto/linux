@@ -19,7 +19,7 @@ Refer to [git credential storage](https://git-scm.com/book/en/v2/Git-Tools-Crede
 - `$ git config --global credential.helper store`
 
 Refer to [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
-- `$ ssh-keygen -t ed25519 -C "your_email@example.com"
+- `$ ssh-keygen -t ed25519 -C "your_email@example.com"`
 - `$ eval "$(ssh-agent -s)"`
 - `$ ssh-add ~/.ssh/id_ed25519`
 - `$ sudo apt-get install xclip`, if not done
