@@ -25,9 +25,5 @@ Accessaries:
 
 Operating system:
 
-- Ubuntu 21.04, 64-bit: recommended for developers
-- Raspberry Pi OS: is not recommended because (1) it is 32-bit OS where a lot of applications such as Android Studio require 64-bit OS and (2) packages available in its package repository is quite limited.
-
-Utilities for Raspberry Pi:
-
-- Raspberry Pi Imager: available for Mac, Windows, and Linux; allows you to install OS to an SD card
+- Ubuntu 64-bit: works but slow
+- Raspberry Pi OS 64-bit: works fine but looks cheap
