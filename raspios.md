@@ -43,13 +43,20 @@ $ sudo apt update && sudo apt upgrade -y
 
 ## To enable Japanese Input
 
-`mozc` on `ibus` is the simplest choice.
+Mozc on IBus is the simplest choice.
 
 ```bash
 $ sudo apt install ibus-mozc
 ```
 
-Upon installation, logout and login to enable `mozc`.
+Upon installation, logout and login to enable Mozc. You will find the JA panel. To enable Mozc, you need to setup IBus.
+
+- Raspberry icon > Preferences > IBus Preferences > Input Method
+- In the Input Method list
+  - remove Japanese - Japanese
+  - add Japanese - Mozc
+
+You might want customize Mozc such as Kana input as the default method.
 
 ## Install VS Code
 
