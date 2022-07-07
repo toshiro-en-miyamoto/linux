@@ -1,2 +1,4 @@
 # Linux
-almost ubuntu linux
+
+- Ubuntu
+- Raspberry Pi OS (Debian + LXDE)
