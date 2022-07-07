@@ -8,7 +8,7 @@ Raspberry Pi OS 64-bit with Desktop (Release date: April 4th 2022) is based on D
 
 You may want to edit `~/.bashrc` to customize the command prompt.
 
-## To know what version you are using
+## OS
 
 ```bash
 $ lsb_release -a
@@ -19,7 +19,7 @@ Release:	11
 Codename:	bullseye
 ```
 
-## To know available disk space
+## Available disk space
 
 ```
 $ df -T
@@ -33,7 +33,7 @@ tmpfs          tmpfs         5120       4      5116   1% /run/lock
 tmpfs          tmpfs       799996      24    799972   1% /run/user/1000
 ```
 
-## To make your system up-to-date
+## Make your system up-to-date
 
 Use [`apt`](https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html) as [`aptitude`](https://www.debian.org/doc/manuals/debian-faq/uptodate.en.html) is not the recommended tool for doing upgrade from one release to another.
 
@@ -41,7 +41,7 @@ Use [`apt`](https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html) as [
 $ sudo apt update && sudo apt upgrade -y
 ```
 
-## To enable Japanese Input
+## Japanese Input
 
 Mozc on IBus is the simplest choice.
 
@@ -58,7 +58,33 @@ Upon installation, logout and login to enable Mozc. You will find the JA panel. 
 
 You might want customize Mozc such as Kana input as the default method.
 
-## Install VS Code
+## Git
+
+Refer to [git credential storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage).
+
+```bash
+$ git config --global user.email "your mail.addr"
+$ git config --global user.name "Your Name"
+$ git config --global credential.helper store
+```
+
+Refer to [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
+
+```bash
+$ ssh-keygen -t ed25519 -C "your_email@example.com"
+$ eval "$(ssh-agent -s)"
+$ ssh-add ~/.ssh/id_ed25519
+```
+
+Then add the public key in your git accout.
+
+```bash
+$ xsel --clipboard < ~/.ssh/id_ed25519.pub
+```
+
+Now you can use `ssh:` to clone repositories.
+
+## VS Code
 
 The repository and key can also be installed manually with the following [script](https://code.visualstudio.com/docs/setup/linux):
 
