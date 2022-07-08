@@ -8,7 +8,7 @@ Raspberry Pi OS 64-bit with Desktop (Release date: April 4th 2022) is based on D
 
 You may want to edit `~/.bashrc` to customize the command prompt.
 
-## OS
+# OS
 
 ```bash
 $ lsb_release -a
@@ -58,6 +58,8 @@ Upon installation, logout and login to enable Mozc. You will find the JA panel. 
 
 You might want customize Mozc such as Kana input as the default method.
 
+# Essentials for Programming
+
 ## Git
 
 Refer to [git credential storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage).
@@ -103,11 +105,11 @@ $ sudo apt update
 $ sudo apt install code
 ```
 
-## C++20
+# C++20
 
 As of July 7 2022, the default C++ is version 10.2.1. According to [C++ Standards Support in GCC](https://gcc.gnu.org/projects/cxx-status.html), although GCC's support is still experimental, many C++20 features are implemented by version 10.2. Notabe exception is the Module supprt. Therefore the default C++ is enough to study C++20.
 
-## Bazel & GoogleTest
+## GoogleTest and Bazel
 
 [GoogleTest](https://google.github.io/googletest/) is a C++ testing and mocking framework. [Bazel](https://bazel.build/) is the preferred build system used by the GoogleTest team.
 To [install Bazel using Bazelisk](https://bazel.build/install/bazelisk), download the [latest Bazelisk binary](https://github.com/bazelbuild/bazelisk/releases) such as `bazelisk-linux-arm64` of version 1.12.0, then
@@ -125,3 +127,55 @@ bazel 5.2.0
 
 For the detail on how to run GoogleTest with Bazel, visit [GoogleTest tutorial](https://google.github.io/googletest/quickstart-bazel.html).
 
+
+## VS Code extensions
+
+- *C/C++* by Microsoft: C/C++ IntelliSense, debugging, and code browsing
+- *Better C++ Syntax* by Jeff Hykin: The bleeding edge of the C++ syntax
+
+# Java 17
+
+Install OpenJK-17 or later if not:
+
+```bash
+$ which java
+$ sudo apt install openjdk-17-jdk
+$ java --version
+openjdk 17.0.3 2022-04-19
+OpenJDK Runtime Environment (build 17.0.3+7-Debian-1deb11u1)
+OpenJDK 64-Bit Server VM (build 17.0.3+7-Debian-1deb11u1, mixed mode, sharing)
+```
+
+Indentity the directory where JDK has been installed:
+
+```bash
+$ ls -l /usr/lib/jvm/
+total 4
+lrwxrwxrwx 1 root root   21 May  3 06:04 java-1.17.0-openjdk-arm64 -> java-17-openjdk-arm64
+drwxr-xr-x 9 root root 4096 Jul  8 14:57 java-17-openjdk-arm64
+```
+
+Then set `JAVA_HOME` in `/etc/environment`:
+
+```bash
+$ cat /etc/environment
+JAVA_HOME="/usr/lib/jvm/java-17-openjdk-arm64"
+```
+
+## JUnit5 and Gradle
+
+[JUnit](https://junit.org/junit5/) is a Java unit testing framework that's one of the best test methods for regression testing. Google chose [Gradle](https://gradle.org/maven-vs-gradle/) as the official build tool for Android; not because build scripts are code, but because Gradle is modeled in a way that is extensible in the most fundamental ways. To install Gradle,
+
+```bash
+$ which gradle
+$ sudo apt install gradle
+$ gradle --version
+Gradle 4.4.1
+```
+
+## VS Code extensions
+
+- *Extension Pack for Java* by Microsoft: a collection of popular extensions that can help write, test and debug Java applications in Visual Studio Code.
+- *Gradle for Java* by Microsoft: provides a visual interface for your Gradle build
+
+The Extension Pack for Java enables *Test task*, which allows you to run JUnit tests.
