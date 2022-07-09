@@ -180,3 +180,41 @@ Gradle 4.4.1
 - *Gradle for Java* by Microsoft: provides a visual interface for your Gradle build
 
 The Extension Pack for Java enables *Test task*, which allows you to run JUnit tests.
+
+# JavaScript ES6 with Node.js
+
+[Node.js](https://nodejs.org/en/) is a JavaScript runtime built on Chrome's V8 JavaScript engine, and [npm](https://github.com/npm) stands for Node Package Manager.
+
+```bash
+$ which node
+$ sudo apt install nodejs
+$ node --version
+V12.22.12
+$ which npm
+$ sudo apt install npm
+$ npm --version
+7.5.2
+```
+
+## Mocha
+
+[Mocha](https://mochajs.org/) is a feature-rich JavaScript test framework running on Node.js.
+
+```bash
+$ which mocha
+$ sudo apt install mocha
+$ mocha --version
+8.2.1
+```
+
+## VS Code extensions
+
+VS Code supprts JavaScript execution and debug out of the box. Create `package.json` to set up a test script, then the editor displays `Debug` button.
+
+```json
+{
+  "scripts": {
+    "test": "mocha"
+  }
+}
+```
