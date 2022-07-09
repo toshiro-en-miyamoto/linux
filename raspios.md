@@ -150,9 +150,10 @@ Indentity the directory where JDK has been installed:
 
 ```bash
 $ ls -l /usr/lib/jvm/
-total 4
+total 8
 lrwxrwxrwx 1 root root   21 May  3 06:04 java-1.17.0-openjdk-arm64 -> java-17-openjdk-arm64
 drwxr-xr-x 9 root root 4096 Jul  8 14:57 java-17-openjdk-arm64
+drwxr-xr-x 2 root root 4096 Jul  9 12:05 openjdk-17
 ```
 
 Then set `JAVA_HOME` in `/etc/environment`:
