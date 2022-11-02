@@ -68,7 +68,7 @@ $ ssh-add ~/.ssh/id_ed25519
 Then add the public key in your Git account:
 
 ```bash
-$ xsel -b < ~./ssh/id_ed25519
+$ xsel -b < ~/.ssh/id_ed25519
 ```
 
 ## C++ compilers
