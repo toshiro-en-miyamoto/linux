@@ -68,14 +68,51 @@ $ ssh-add ~/.ssh/id_ed25519
 Then add the public key in your Git account:
 
 ```bash
-$ xsel -b < ~/.ssh/id_ed25519
+$ xsel -b < ~/.ssh/id_ed25519.pub
 ```
+
+## VS Code
+
+VS Code is available via Snap Store.
 
 ## C++ compilers
 
 ```bash
 $ sudo apt install build-essential
 $ g++ --version
+g++ (Ubuntu 12.2.0-3ubuntu1) 12.2.0
 ```
 
+## Java
 
+Although OpenJDK is available on the Snap Store, we will install OpenJDK with `apt` because the OpenJDK snap includes API documents and the source code of JDK.
+
+```bash
+$ sudo apt install openjdk-19-jdk
+
+$ java --version
+openjdk 19 2022-09-20
+OpenJDK Runtime Environment (build 19+36-Ubuntu-2)
+OpenJDK 64-Bit Server VM (build 19+36-Ubuntu-2, mixed mode, sharing)
+
+$ javac --version
+javac 19
+```
+
+Determine the directory where JDK is installed:
+
+```bash
+$ ls -l /usr/lib/jvm/
+total 8
+lrwxrwxrwx 1 root root   21  9月 28 23:16 java-1.19.0-openjdk-amd64 -> java-19-openjdk-amd64
+drwxr-xr-x 9 root root 4096 11月  2 22:36 java-19-openjdk-amd64
+drwxr-xr-x 2 root root 4096 11月  2 22:36 openjdk-19
+```
+
+Then set `JAVA_HOME` in `~/.bash_profile`:
+
+```bash
+$ tail -2 ~/.bash_profile
+JAVA_HOME="/usr/lib/jvm/java-19-openjdk-amd64";
+export JAVA_HOME;
+```
