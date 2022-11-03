@@ -75,12 +75,16 @@ $ xsel -b < ~/.ssh/id_ed25519.pub
 
 VS Code is available via Snap Store.
 
-## C++ compilers
+## C++ compilers & CMake
 
 ```bash
 $ sudo apt install build-essential
 $ g++ --version
 g++ (Ubuntu 12.2.0-3ubuntu1) 12.2.0
+
+$ sudo apt install cmake
+$ cmake --version
+cmake version 3.24.2
 ```
 
 ## Java
