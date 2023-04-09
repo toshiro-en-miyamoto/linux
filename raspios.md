@@ -24,13 +24,13 @@ Codename:	bullseye
 ```
 $ df -T
 Filesystem     Type     1K-blocks    Used Available Use% Mounted on
-/dev/root      ext4       7332696 4192272   2786536  61% /
-devtmpfs       devtmpfs   3834256       0   3834256   0% /dev
-tmpfs          tmpfs      3999984  161260   3838724   5% /dev/shm
-tmpfs          tmpfs      1599996    1256   1598740   1% /run
+/dev/root      ext4      28901524 3598580  24070324  14% /
+devtmpfs       devtmpfs   3735680       0   3735680   0% /dev
+tmpfs          tmpfs      3999904   24456   3975448   1% /dev/shm
+tmpfs          tmpfs      1599964    1224   1598740   1% /run
 tmpfs          tmpfs         5120       4      5116   1% /run/lock
-/dev/mmcblk0p1 vfat        258095   31479    226617  13% /boot
-tmpfs          tmpfs       799996      24    799972   1% /run/user/1000
+/dev/mmcblk0p1 vfat        261108   31374    229734  13% /boot
+tmpfs          tmpfs       799980      20    799960   1% /run/user/1000
 ```
 
 ## Make your system up-to-date
@@ -39,6 +39,13 @@ Use [`apt`](https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html) as [
 
 ```bash
 $ sudo apt update && sudo apt upgrade -y
+```
+
+## `bash` prompt
+
+```bash
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\W \$\[\033[00m\] '
+PS1='${debian_chroot:+($debian_chroot)}\W\$ '
 ```
 
 ## Japanese Input
@@ -108,25 +115,6 @@ $ sudo apt install code
 # C++20
 
 As of July 7 2022, the default C++ is version 10.2.1. According to [C++ Standards Support in GCC](https://gcc.gnu.org/projects/cxx-status.html), although GCC's support is still experimental, many C++20 features are implemented by version 10.2. Notabe exception is the Module supprt. Therefore the default C++ is enough to study C++20.
-
-## GoogleTest and Bazel
-
-[GoogleTest](https://google.github.io/googletest/) is a C++ testing and mocking framework. [Bazel](https://bazel.build/) is the preferred build system used by the GoogleTest team.
-To [install Bazel using Bazelisk](https://bazel.build/install/bazelisk), download the [latest Bazelisk binary](https://github.com/bazelbuild/bazelisk/releases) such as `bazelisk-linux-arm64` of version 1.12.0, then
-
-```bash
-$ sudo cp ~/Downloads/bazelisk-linux-arm64 /usr/local/bin/bazel
-$ rm -f ~/Downloads/bazelisk-linux-arm64
-$ sudo chmod +x /usr/local/bin/bazel
-$ bazel --version
-2022/07/08 05:03:05 Downloading https://releases.bazel.build/5.2.0/release/bazel-5.2.0-linux-arm64...
-bazel 5.2.0
-$ bazel --version
-bazel 5.2.0
-```
-
-For the detail on how to run GoogleTest with Bazel, visit [GoogleTest tutorial](https://google.github.io/googletest/quickstart-bazel.html).
-
 
 ## VS Code extensions
 
@@ -218,3 +206,21 @@ VS Code supprts JavaScript execution and debug out of the box. Create `package.j
   }
 }
 ```
+
+## GoogleTest and Bazel
+
+[GoogleTest](https://google.github.io/googletest/) is a C++ testing and mocking framework. [Bazel](https://bazel.build/) is the preferred build system used by the GoogleTest team.
+To [install Bazel using Bazelisk](https://bazel.build/install/bazelisk), download the [latest Bazelisk binary](https://github.com/bazelbuild/bazelisk/releases) such as `bazelisk-linux-arm64` of version 1.12.0, then
+
+```bash
+$ sudo cp ~/Downloads/bazelisk-linux-arm64 /usr/local/bin/bazel
+$ rm -f ~/Downloads/bazelisk-linux-arm64
+$ sudo chmod +x /usr/local/bin/bazel
+$ bazel --version
+2022/07/08 05:03:05 Downloading https://releases.bazel.build/5.2.0/release/bazel-5.2.0-linux-arm64...
+bazel 5.2.0
+$ bazel --version
+bazel 5.2.0
+```
+
+For the detail on how to run GoogleTest with Bazel, visit [GoogleTest tutorial](https://google.github.io/googletest/quickstart-bazel.html).
