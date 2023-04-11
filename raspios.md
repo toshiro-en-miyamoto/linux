@@ -112,6 +112,10 @@ $ sudo apt update
 $ sudo apt install code
 ```
 
+## VS Code extensions
+
+- Code Spell Checker by Street Side Software
+
 # C++20
 
 As of July 7 2022, the default C++ is version 10.2.1. According to [C++ Standards Support in GCC](https://gcc.gnu.org/projects/cxx-status.html), although GCC's support is still experimental, many C++20 features are implemented by version 10.2. Notabe exception is the Module supprt. Therefore the default C++ is enough to study C++20.
