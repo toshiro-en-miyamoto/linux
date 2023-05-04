@@ -1,6 +1,6 @@
 # Raspberry Pi OS (Bullseye)
 
-Raspberry Pi OS 64-bit with Desktop (Release date: April 4th 2022) is based on Debian version: 11 (bullseye). Its desktop, aka PIXEL, is based on LXDE. Available applications by default include:
+Raspberry Pi OS 64-bit with Desktop (Release date: April 4th 2022) is based on Debian version: 11 (bullseye). Its desktop, aka PIXEL, is based on LXDE (using GTK 2). Available applications by default include:
 
 - Chromium browser
 - git
