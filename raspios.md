@@ -112,6 +112,12 @@ $ sudo apt update
 $ sudo apt install code
 ```
 
+Update to the latest version:
+
+```bash
+$ sudo apt update && sudo apt upgrade -y
+```
+
 ## VS Code extensions
 
 - Code Spell Checker by Street Side Software
