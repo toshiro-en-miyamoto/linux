@@ -124,7 +124,18 @@ $ sudo apt update && sudo apt upgrade -y
 
 # C++20
 
-As of July 7 2022, the default C++ is version 10.2.1. According to [C++ Standards Support in GCC](https://gcc.gnu.org/projects/cxx-status.html), although GCC's support is still experimental, many C++20 features are implemented by version 10.2. Notabe exception is the Module supprt. Therefore the default C++ is enough to study C++20.
+## GCC
+
+Debian Bullseye Desktop release comes with Build Essential, which has GCC 10.2.1 by default. According to [C++ Standards Support in GCC](https://gcc.gnu.org/projects/cxx-status.html), although GCC's support is still experimental, many C++20 features are implemented by version 10.2. Notabe exception is the Module supprt. Therefore the default C++ is enough to study C++20.
+
+## Clang
+
+Debian Build Essential doesn't include Clang. Install the latest Clang, which is required for Qt QDoc.
+
+```bash
+$ sudo apt update && sudo apt upgrade -y
+$ sudo apt install clang-13
+```
 
 ## CMake
 
