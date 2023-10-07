@@ -48,6 +48,15 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\W \$\[\033[00m\] '
 PS1='${debian_chroot:+($debian_chroot)}\W\$ '
 ```
 
+## Time servers
+
+As there are not enough servers in Philippines timezone, it is recommended to use Asia time servers in `/etc/systemd/timesyncd.conf`:
+
+```
+[Time]
+NTP=0.asia.pool.ntp.org 1.asia.pool.ntp.org 2.asia.pool.ntp.org 3.asia.pool.ntp.org
+```
+
 ## Japanese Input
 
 Mozc on IBus is the simplest choice.
