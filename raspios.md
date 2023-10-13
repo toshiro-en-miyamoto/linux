@@ -4,7 +4,7 @@ Raspberry Pi OS 64-bit with Desktop (Release date: 10 October 2023) is based on 
 
 - Chromium browser
 - git
-- gcc-10, perl, python3
+- gcc-12, perl, python3
 
 # OS
 
@@ -134,7 +134,7 @@ $ sudo apt update && sudo apt upgrade -y
 
 ## GCC
 
-Debian Bullseye Desktop release comes with Build Essential, which has GCC 10.2.1 by default. According to [C++ Standards Support in GCC](https://gcc.gnu.org/projects/cxx-status.html), although GCC's support is still experimental, many C++20 features are implemented by version 10.2. Notabe exception is the Module supprt. Therefore the default C++ is enough to study C++20.
+Debian bookworm desktop release comes with Build Essential, which has GCC 12.2.0 by default. According to [C++ Standards Support in GCC](https://gcc.gnu.org/projects/cxx-status.html), although GCC's support is still experimental, many C++20 features are implemented by version 12.2. Notabe exception is the Module supprt. Therefore the default C++ is enough to study C++20.
 
 ## Clang
 
