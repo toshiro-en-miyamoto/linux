@@ -1,6 +1,6 @@
-# Raspberry Pi OS (Bookworm)
+# Raspberry Pi OS (bookworm)
 
-Raspberry Pi OS 64-bit with Desktop (Release date: 10 October 2023) is based on Debian version: 12 (Bookworm). Its desktop, aka PIXEL, is based on LXDE (using GTK 2). Available applications by default include:
+Raspberry Pi OS 64-bit with Desktop (Release date: 10 October 2023) is based on Debian version: 12 (bookworm). Its desktop, aka PIXEL, is based on LXDE (using GTK 2). Available applications by default include:
 
 - Chromium browser
 - git
@@ -12,23 +12,22 @@ Raspberry Pi OS 64-bit with Desktop (Release date: 10 October 2023) is based on 
 $ lsb_release -a
 No LSB modules are available.
 Distributor ID:	Debian
-Description:	Debian GNU/Linux 11 (bullseye)
-Release:	11
-Codename:	bullseye
+Description:	Debian GNU/Linux 12 (bookworm)
+Release:	12
+Codename:	bookworm
 ```
 
 ## Available disk space
 
 ```
 $ df -T
-Filesystem     Type     1K-blocks    Used Available Use% Mounted on
-/dev/root      ext4      28901524 3598580  24070324  14% /
-devtmpfs       devtmpfs   3735680       0   3735680   0% /dev
-tmpfs          tmpfs      3999904   24456   3975448   1% /dev/shm
-tmpfs          tmpfs      1599964    1224   1598740   1% /run
-tmpfs          tmpfs         5120       4      5116   1% /run/lock
-/dev/mmcblk0p1 vfat        261108   31374    229734  13% /boot
-tmpfs          tmpfs       799980      20    799960   1% /run/user/1000
+udev           devtmpfs   3726712       0   3726712   0% /dev
+tmpfs          tmpfs       799868    1348    798520   1% /run
+/dev/mmcblk0p2 ext4      28645820 4731204  22439512  18% /
+tmpfs          tmpfs      3999324   22532   3976792   1% /dev/shm
+tmpfs          tmpfs         5120      16      5104   1% /run/lock
+/dev/mmcblk0p1 vfat        522232   74004    448228  15% /boot/firmware
+tmpfs          tmpfs       799864      44    799820   1% /run/user/1000
 ```
 
 ## Time servers
@@ -67,7 +66,7 @@ Upon installation, logout and login to enable Mozc. You will find the JA panel. 
 
 - Raspberry icon > Preferences > IBus Preferences > Input Method
 - In the Input Method list
-  - remove Japanese - Japanese
+  - remove Japanese - Japanese, if exist
   - add Japanese - Mozc
 
 You might want customize Mozc such as Kana input as the default method.
