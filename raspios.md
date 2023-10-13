@@ -49,6 +49,8 @@ $ sudo apt update && sudo apt upgrade -y
 
 ## `bash` prompt
 
+You may want to edit `~/.bashrc` to customize the command prompt.
+
 ```bash
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\W \$\[\033[00m\] '
 PS1='${debian_chroot:+($debian_chroot)}\W\$ '
