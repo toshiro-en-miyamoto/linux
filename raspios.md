@@ -134,7 +134,14 @@ $ sudo apt update && sudo apt upgrade -y
 
 ## GCC
 
-Debian bookworm desktop release comes with Build Essential, which has GCC 12.2.0 by default. According to [C++ Standards Support in GCC](https://gcc.gnu.org/projects/cxx-status.html), although GCC's support is still experimental, many C++20 features are implemented by version 12.2. Notabe exception is the Module supprt. Therefore the default C++ is enough to study C++20.
+Debian bookworm desktop release comes with Build Essential, which has GCC 12.2.0 by default. According to [C++ Standards Support in GCC](https://gcc.gnu.org/projects/cxx-status.html), GCC's support is still experimental, but GCC 12.2 implements
+
+- most C++20 language features, including module
+- many [C++20 library features](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html), but not
+  - Extending chrono to Calendars and Time Zones (P0355R7, 14.1)
+  - Text formatting (P0645R10, 13.1)
+  - Integration of chrono with text formatting (P1361R2, 13.1)
+  - Printf corner cases in `std::format` (P1652R1, 13.1)
 
 ## Clang
 
