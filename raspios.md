@@ -145,11 +145,11 @@ Debian bookworm desktop release comes with Build Essential, which has GCC 12.2.0
 
 ## Clang
 
-Debian Build Essential doesn't include Clang. Install the latest Clang, which is required for Qt QDoc.
+Debian Build Essential doesn't include Clang. Install the latest Clang, which is version 15 for Debian bookworm.
 
 ```bash
 $ sudo apt update && sudo apt upgrade -y
-$ sudo apt install clang-13
+$ sudo apt install clang-15
 ```
 
 ## CMake
