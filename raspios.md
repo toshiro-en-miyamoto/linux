@@ -1,12 +1,10 @@
-# Raspberry Pi OS (Bullseye)
+# Raspberry Pi OS (Bookworm)
 
-Raspberry Pi OS 64-bit with Desktop (Release date: April 4th 2022) is based on Debian version: 11 (bullseye). Its desktop, aka PIXEL, is based on LXDE (using GTK 2). Available applications by default include:
+Raspberry Pi OS 64-bit with Desktop (Release date: 10 October 2023) is based on Debian version: 12 (Bookworm). Its desktop, aka PIXEL, is based on LXDE (using GTK 2). Available applications by default include:
 
 - Chromium browser
 - git
 - gcc-10, perl, python3
-
-You may want to edit `~/.bashrc` to customize the command prompt.
 
 # OS
 
@@ -33,6 +31,15 @@ tmpfs          tmpfs         5120       4      5116   1% /run/lock
 tmpfs          tmpfs       799980      20    799960   1% /run/user/1000
 ```
 
+## Time servers
+
+As there are not enough servers in Philippines timezone, it is recommended to use Asia time servers in `/etc/systemd/timesyncd.conf`:
+
+```
+[Time]
+NTP=0.asia.pool.ntp.org 1.asia.pool.ntp.org 2.asia.pool.ntp.org 3.asia.pool.ntp.org
+```
+
 ## Make your system up-to-date
 
 Use [`apt`](https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html) as [`aptitude`](https://www.debian.org/doc/manuals/debian-faq/uptodate.en.html) is not the recommended tool for doing upgrade from one release to another.
@@ -46,15 +53,6 @@ $ sudo apt update && sudo apt upgrade -y
 ```bash
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\W \$\[\033[00m\] '
 PS1='${debian_chroot:+($debian_chroot)}\W\$ '
-```
-
-## Time servers
-
-As there are not enough servers in Philippines timezone, it is recommended to use Asia time servers in `/etc/systemd/timesyncd.conf`:
-
-```
-[Time]
-NTP=0.asia.pool.ntp.org 1.asia.pool.ntp.org 2.asia.pool.ntp.org 3.asia.pool.ntp.org
 ```
 
 ## Japanese Input
