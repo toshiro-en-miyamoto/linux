@@ -30,6 +30,15 @@ tmpfs          tmpfs         5120      16      5104   1% /run/lock
 tmpfs          tmpfs       799864      44    799820   1% /run/user/1000
 ```
 
+# Before connecting to the Internet
+
+## Setting localization
+
+- Locale
+- Timesoze
+- Keyboard layout
+- WiFi country
+
 ## Time servers
 
 As there are not enough servers in Philippines timezone, it is recommended to use Asia time servers in `/etc/systemd/timesyncd.conf`:
@@ -39,14 +48,6 @@ As there are not enough servers in Philippines timezone, it is recommended to us
 NTP=0.asia.pool.ntp.org 1.asia.pool.ntp.org 2.asia.pool.ntp.org 3.asia.pool.ntp.org
 ```
 
-## Make your system up-to-date
-
-Use [`apt`](https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html) as [`aptitude`](https://www.debian.org/doc/manuals/debian-faq/uptodate.en.html) is not the recommended tool for doing upgrade from one release to another.
-
-```bash
-$ sudo apt update && sudo apt upgrade -y
-```
-
 ## `bash` prompt
 
 You may want to edit `~/.bashrc` to customize the command prompt.
@@ -54,6 +55,16 @@ You may want to edit `~/.bashrc` to customize the command prompt.
 ```bash
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\W \$\[\033[00m\] '
 PS1='${debian_chroot:+($debian_chroot)}\W\$ '
+```
+
+# After connecting to the Internet
+
+## Make your system up-to-date
+
+Use [`apt`](https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html) as [`aptitude`](https://www.debian.org/doc/manuals/debian-faq/uptodate.en.html) is not the recommended tool for doing upgrade from one release to another.
+
+```bash
+$ sudo apt update && sudo apt upgrade -y
 ```
 
 ## Japanese Input
