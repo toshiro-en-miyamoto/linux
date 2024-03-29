@@ -1,10 +1,10 @@
 # Raspberry Pi OS (bookworm)
 
-Raspberry Pi OS 64-bit with Desktop (Release date: 10 October 2023) is based on Debian version: 12 (bookworm). Its desktop, aka PIXEL, is based on LXDE (using GTK 2). Available applications by default include:
+Raspberry Pi OS 64-bit with Desktop (as of March 29, 2024) is based on Debian version: 12 (bookworm). Its desktop, aka PIXEL, is based on LXDE (using GTK 2). Available applications by default include:
 
 - Chromium browser
 - git
-- gcc-12, perl, python3
+- gcc, python3
 
 # OS
 
@@ -15,19 +15,26 @@ Distributor ID:	Debian
 Description:	Debian GNU/Linux 12 (bookworm)
 Release:	12
 Codename:	bookworm
+
+$ gcc --version
+gcc (Debian 12.2.0-14) 12.2.0
+
+$ python --version
+Python 3.11.2
 ```
 
 ## Available disk space
 
 ```
 $ df -T
-udev           devtmpfs   3726712       0   3726712   0% /dev
-tmpfs          tmpfs       799868    1348    798520   1% /run
-/dev/mmcblk0p2 ext4      28645820 4731204  22439512  18% /
-tmpfs          tmpfs      3999324   22532   3976792   1% /dev/shm
-tmpfs          tmpfs         5120      16      5104   1% /run/lock
-/dev/mmcblk0p1 vfat        522232   74004    448228  15% /boot/firmware
-tmpfs          tmpfs       799864      44    799820   1% /run/user/1000
+Filesystem     Type     1K-blocks    Used Available Use% Mounted on
+udev           devtmpfs   3946080       0   3946080   0% /dev
+tmpfs          tmpfs       824176    6384    817792   1% /run
+/dev/mmcblk0p2 ext4      29362632 5295580  22555372  20% /
+tmpfs          tmpfs      4120800     624   4120176   1% /dev/shm
+tmpfs          tmpfs         5120      48      5072   1% /run/lock
+/dev/mmcblk0p1 vfat        522230   76070    446160  15% /boot/firmware
+tmpfs          tmpfs       824160     144    824016   1% /run/user/1000
 ```
 
 # Before connecting to the Internet
