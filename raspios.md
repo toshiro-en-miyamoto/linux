@@ -42,8 +42,14 @@ tmpfs          tmpfs       824160     144    824016   1% /run/user/1000
 ## Setting localization
 
 - Locale
-- Timesoze
+  - en (English)
+  - Phillipines
+  - UTF-8
+- Timezone
 - Keyboard layout
+  - Model: Logitech
+  - Layout: Japanese
+  - Variant: Japanese
 - WiFi country
 
 ## Time servers
