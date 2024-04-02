@@ -16,6 +16,9 @@ Description:	Debian GNU/Linux 12 (bookworm)
 Release:	12
 Codename:	bookworm
 
+$ git --version
+git version 2.39.2
+
 $ gcc --version
 gcc (Debian 12.2.0-14) 12.2.0
 
@@ -37,13 +40,21 @@ tmpfs          tmpfs         5120      48      5072   1% /run/lock
 tmpfs          tmpfs       824160     144    824016   1% /run/user/1000
 ```
 
-# Before connecting to the Internet
+# Basic Configurations
+
+## Make your system up-to-date
+
+Use [`apt`](https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html) as [`aptitude`](https://www.debian.org/doc/manuals/debian-faq/uptodate.en.html) is not the recommended tool for doing upgrade from one release to another.
+
+```bash
+$ sudo apt update && sudo apt upgrade -y
+```
 
 ## Setting localization
 
 - Locale
   - en (English)
-  - Phillipines
+  - Philippines
   - UTF-8
 - Timezone
 - Keyboard layout
@@ -70,32 +81,24 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\W \$\[\033[00m\] '
 PS1='${debian_chroot:+($debian_chroot)}\W\$ '
 ```
 
-# After connecting to the Internet
-
-## Make your system up-to-date
-
-Use [`apt`](https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html) as [`aptitude`](https://www.debian.org/doc/manuals/debian-faq/uptodate.en.html) is not the recommended tool for doing upgrade from one release to another.
-
-```bash
-$ sudo apt update && sudo apt upgrade -y
-```
-
 ## Japanese Input
 
 Mozc on IBus is the simplest choice.
 
 ```bash
-$ sudo apt install ibus-mozc
+$ apt install --install-recommends fcitx5 fcitx5-mozc
+$ apt remove uim uim-mozc
 ```
 
-Upon installation, logout and login to enable Mozc. You will find the JA panel. To enable Mozc, you need to setup IBus.
+Upon installation, reboot the system to enable Fcitx5. You will find Fcitx5 icon in the system tray. Then configure Fcitx5 to enable Mozc.
 
-- Raspberry icon > Preferences > IBus Preferences > Input Method
-- In the Input Method list
-  - remove Japanese - Japanese, if exist
-  - add Japanese - Mozc
+- Fcitx5 icon > Configure menu > Input Method tab
+- In the Input Method tab, configure the Current Input Method list
+  - Group: Default
+  - add Mozc from the Available Input Method list
+  - remove the others from the Current Input Method
 
-You might want customize Mozc such as Kana input as the default method.
+You might want customize Mozc such as Kana input as the default method. Then reboot the system to enable Mozc.
 
 # Essentials for Programming
 
@@ -117,7 +120,7 @@ $ eval "$(ssh-agent -s)"
 $ ssh-add ~/.ssh/id_ed25519
 ```
 
-Then add the public key in your git accout.
+Then add the public key in your git account.
 
 ```bash
 $ xsel --clipboard < ~/.ssh/id_ed25519.pub
@@ -197,7 +200,7 @@ OpenJDK Runtime Environment (build 17.0.3+7-Debian-1deb11u1)
 OpenJDK 64-Bit Server VM (build 17.0.3+7-Debian-1deb11u1, mixed mode, sharing)
 ```
 
-Indentity the directory where JDK has been installed:
+Identify the directory where JDK has been installed:
 
 ```bash
 $ ls -l /usr/lib/jvm/
@@ -260,7 +263,7 @@ $ mocha --version
 
 ## VS Code extensions
 
-VS Code supprts JavaScript execution and debug out of the box. Create `package.json` to set up a test script, then the editor displays `Debug` button.
+VS Code supports JavaScript execution and debug out of the box. Create `package.json` to set up a test script, then the editor displays `Debug` button.
 
 ```json
 {
