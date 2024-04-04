@@ -187,17 +187,17 @@ Install the latest CMake.
 
 - *C/C++ Extension Pack* by Microsoft
 
-# Java 17
+# Java
 
-Install OpenJK-17 or later if not:
+Install the latest Long-Term-Support (LTS) [release](https://www.oracle.com/java/technologies/java-se-support-roadmap.html). As of April 2024, Java 17 is the latest LTS available for Debian bookworm.
 
 ```bash
 $ which java
 $ sudo apt install openjdk-17-jdk
 $ java --version
-openjdk 17.0.3 2022-04-19
-OpenJDK Runtime Environment (build 17.0.3+7-Debian-1deb11u1)
-OpenJDK 64-Bit Server VM (build 17.0.3+7-Debian-1deb11u1, mixed mode, sharing)
+openjdk 17.0.10 2024-01-16
+OpenJDK Runtime Environment (build 17.0.10+7-Debian-1deb12u1)
+OpenJDK 64-Bit Server VM (build 17.0.10+7-Debian-1deb12u1, mixed mode)
 ```
 
 Identify the directory where JDK has been installed:
@@ -205,9 +205,9 @@ Identify the directory where JDK has been installed:
 ```bash
 $ ls -l /usr/lib/jvm/
 total 8
-lrwxrwxrwx 1 root root   21 May  3 06:04 java-1.17.0-openjdk-arm64 -> java-17-openjdk-arm64
-drwxr-xr-x 9 root root 4096 Jul  8 14:57 java-17-openjdk-arm64
-drwxr-xr-x 2 root root 4096 Jul  9 12:05 openjdk-17
+lrwxrwxrwx 1 root root   21 Jan 29 08:07 java-1.17.0-openjdk-arm64 -> java-17-openjdk-arm64
+drwxr-xr-x 9 root root 4096 Apr  4 15:51 java-17-openjdk-arm64
+drwxr-xr-x 2 root root 4096 Apr  4 15:51 openjdk-17
 ```
 
 Then set `JAVA_HOME` in `/etc/environment`:
