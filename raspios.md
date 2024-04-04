@@ -81,6 +81,20 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\W \$\[\033[00m\] '
 PS1='${debian_chroot:+($debian_chroot)}\W\$ '
 ```
 
+## Clock plugin
+
+You may want to configure the display format of Clock on the system tray:
+
+```
+%F (%a) %H:%M
+```
+
+where
+- `%F` is date in yyyy-mm-dd
+- `%a` is the short name of the day of the week
+- `%H` is hour in 24-hour format
+- `%M` is minute
+
 ## Japanese Input
 
 Mozc on IBus is the simplest choice.
