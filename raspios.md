@@ -93,9 +93,9 @@ $ apt remove uim uim-mozc
 Upon installation, reboot the system to enable Fcitx5. You will find Fcitx5 icon in the system tray. Then configure Fcitx5 to enable Mozc.
 
 - Fcitx5 icon > Configure menu > Input Method tab
-- In the Input Method tab, configure the Current Input Method list
-  - Group: Default
-  - add Mozc from the Available Input Method list
+- In the Input Method tab, configure the Current Input Method list for the Default group
+  - add Keyboard - Japanese (seemingly direct input)
+  - add Mozc
   - remove the others from the Current Input Method
 
 You might want customize Mozc such as Kana input as the default method. Then reboot the system to enable Mozc.
