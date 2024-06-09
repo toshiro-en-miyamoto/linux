@@ -1,122 +1,175 @@
-# Ubuntu
+# Ubuntu (24.04 LTS, Noble)
 
-Ubuntu 22.10 (Kinetic Kudu) Desktop minimum installation by default includes:
+Applications installed by default include:
 
-- Fiirefox browser
+- Firefox
+- Python 3
 
-You may want to edit `~/.bashrc` to customize the command prompt.
+You may need to install the following:
+
+- Japanese input
+- git
+- VS Code
+- c++ compilers
 
 ## OS
 
 ```bash
-lsb_release -a
+$ lsb_release -a
 No LSB modules are available.
 Distributor ID:	Ubuntu
-Description:	Ubuntu 22.10
-Release:	22.10
-Codename:	kinetic
+Description:	Ubuntu 24.04 LTS
+Release:	24.04
+Codename:	noble
+
+$ python3 --version
+Python 3.12.3
 ```
 
-## Snap Store
-
-Snaps are applications packaged with all their dependencies to run on all popular Linux distributions from a single build. Snaps are discoverable and installable from Snap Store. Since Ubuntu 16.04 LTS (Xenial Xerus), Snap Store or `snapd` is already installed and ready to go.
-
-The issue is that when updates for Snap Store itself are available, Snap Store is unable to install the updates because the Snap Store process is runnng. Therefore, you need to kill the process before updating Snap Store:
+### Disk Space
 
 ```bash
-$ sudo killall snap-store
-$ sudo snap refresh snapd
+$ df -T
+Filesystem     Type  1K-blocks    Used Available Use% Mounted on
+tmpfs          tmpfs    812892    4008    808884   1% /run
+/dev/mmcblk0p2 ext4   28613016 7124672  20226672  27% /
+tmpfs          tmpfs   4064448       0   4064448   0% /dev/shm
+tmpfs          tmpfs      5120      12      5108   1% /run/lock
+/dev/mmcblk0p1 vfat     516204  173106    343099  34% /boot/firmware
+tmpfs          tmpfs    812888     136    812752   1% /run/user/1002
 ```
 
-## Japanese Input
+## Basic Configurations
+
+### System Update
+
+```bash
+$ sudo apt update && sudo apt upgrade -y
+```
+
+### Updating Snap Store
+
+The issue is that when updates for Snap Store itself are available, Snap Store is unable to install the updates because the Snap Store process is running. Therefore, you need to kill the process before updating Snap Store:
+
+```bash
+$ sudo sudo killall snap-store
+snap-store: no process found
+
+$ sudo snap refresh snap-store
+snap-store (stable/ubuntu-24.04) 0+git.ec3fa65 from Canonical✓ refreshed
+```
+
+### `bash` Prompt
+
+You may want to edit `~/.bashrc` to customize the command prompt:
+
+```bash
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\W \$\[\033[00m\] '
+PS1='${debian_chroot:+($debian_chroot)}\W\$ '
+```
+
+### Japanese Input
 
 Ubuntu 21.04 or later installs Mozc by default, and Mozc will be activated once the Japanese Language Pack is installed. So,
 
-- install Japanese Language Pack
-- check it Mozc is activated
+- open Language Support to install default language pack (English)
+- install Japanese Language Pack on Language Support window
+- restart the system to activate Mozc
+- check the top bar to see if Mozc is activated
 
-## XSel
+## Essentials for Programming
 
-XSel is a command-line program for getting and setting the contents of the X selection.
+### Git
+
+Install XSel to help Git customization.
 
 ```bash
 $ sudo apt install xsel
 ```
 
-## Git
+Refer to [Git Credential Storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage).
 
 ```bash
 $ sudo apt install git
-```
 
-Using the Git Credential Store helper will store your passwords unencrypted on disk, protected only by filesystem permissions.
-
-```bash
-$ git config --global user.email "your_email@example.com"
+$ git config --global user.email "your email address"
 $ git config --global user.name "your name"
 $ git config --global credential.helper store
 ```
 
-[Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh):
+Refer to [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh).
 
 ```bash
-$ ssh-keygen -t ed25519 -C "your_email@example.com"
+$ ssh-keygen -t ed25519 -C "your email address"
+Your identification has been saved in ~/.ssh/id_ed25519
+Your public key has been saved in ~/.ssh/id_ed25519.pub
+
 $ eval "$(ssh-agent -s)"
+Agent pid 5325
+
 $ ssh-add ~/.ssh/id_ed25519
+Identity added: ~/.ssh/id_ed25519 (your email address)
 ```
 
-Then add the public key in your Git account:
+Then add the public key in your git account.
 
 ```bash
-$ xsel -b < ~/.ssh/id_ed25519.pub
+$ xsel --clipboard < ~/.ssh/id_ed25519.pub
 ```
 
-## VS Code
+Now you can use `ssh:` to clone repositories.
 
-VS Code is available via Snap Store.
+### VS Code
 
-## C++ compilers & CMake
+> `snap install code --classic` does not work, because Snap "code" is not available on stable for `arm64`.
+
+You can install the repository and key manually with the [following](https://code.visualstudio.com/docs/setup/linux) script:
+
+```bash
+$ wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+$ sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+$ echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
+$ rm -f packages.microsoft.gpg
+```
+
+Then update the package cache and install the package:
+
+```bash
+$ sudo apt install apt-transport-https
+$ sudo apt update
+$ sudo apt install code
+$ sudo apt update && sudo apt upgrade -y
+```
+
+VS Code customization:
+
+- Editor: Tab size = 2
+
+VS Code extensions:
+
+- *Code Spell Checker* by Street Side Software
+
+### C++
 
 ```bash
 $ sudo apt install build-essential
 $ g++ --version
-g++ (Ubuntu 12.2.0-3ubuntu1) 12.2.0
+g++ (Ubuntu 13.2.0-23ubuntu4) 13.2.0
 
 $ sudo apt install cmake
 $ cmake --version
-cmake version 3.24.2
+cmake version 3.28.3
 ```
 
-## Java
+VS Code extensions:
 
-Although OpenJDK is available on the Snap Store, we will install OpenJDK with `apt` because the OpenJDK snap includes API documents and the source code of JDK.
+- *C/C++ Extension Pack* by Microsoft, which includes
+  - *C/C++*
+  - *C/C++ Themes*
+  - *CMake*
+  - *CMake Tools*
 
-```bash
-$ sudo apt install openjdk-19-jdk
+VS Code customization:
 
-$ java --version
-openjdk 19 2022-09-20
-OpenJDK Runtime Environment (build 19+36-Ubuntu-2)
-OpenJDK 64-Bit Server VM (build 19+36-Ubuntu-2, mixed mode, sharing)
-
-$ javac --version
-javac 19
-```
-
-Determine the directory where JDK is installed:
-
-```bash
-$ ls -l /usr/lib/jvm/
-total 8
-lrwxrwxrwx 1 root root   21  9月 28 23:16 java-1.19.0-openjdk-amd64 -> java-19-openjdk-amd64
-drwxr-xr-x 9 root root 4096 11月  2 22:36 java-19-openjdk-amd64
-drwxr-xr-x 2 root root 4096 11月  2 22:36 openjdk-19
-```
-
-Then set `JAVA_HOME` in `~/.bash_profile`:
-
-```bash
-$ tail -2 ~/.bash_profile
-JAVA_HOME="/usr/lib/jvm/java-19-openjdk-amd64";
-export JAVA_HOME;
-```
+- C/C++ > IntelliSense > C_Cpp > Default > Cpp Standard = c++23
+- C/C++ > IntelliSense > C_Cpp > Default > C Standard = c23
