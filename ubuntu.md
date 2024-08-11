@@ -77,6 +77,21 @@ Ubuntu 21.04 or later installs Mozc by default, and Mozc will be activated once 
 - restart the system to activate Mozc
 - check the top bar to see if Mozc is activated
 
+### Removing Libre Office
+
+```bash
+$ sudo apt update
+$ sudo apt remove --purge libreoffice*
+$ sudo apt clean
+$ sudo apt-get autoremove
+```
+
+You might find that `/etc/libreoffice` directory still remains.
+
+```bash
+$ sudo rm -r /etc/libreoffice
+```
+
 ## Essentials for Programming
 
 ### Git
