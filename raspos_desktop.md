@@ -1,4 +1,4 @@
-# Raspberry Pi OS (bookworm)
+# Raspberry Pi OS Desktop (bookworm)
 
 Raspberry Pi OS 64-bit with Desktop (as of March 29, 2024) is based on Debian version: 12 (bookworm). Its desktop, aka PIXEL, is based on LXDE (using GTK 2). Available applications by default include:
 
@@ -42,14 +42,6 @@ tmpfs          tmpfs       824160     144    824016   1% /run/user/1000
 
 # Basic Configurations
 
-## Make your system up-to-date
-
-Use [`apt`](https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html) as [`aptitude`](https://www.debian.org/doc/manuals/debian-faq/uptodate.en.html) is not the recommended tool for doing upgrade from one release to another.
-
-```bash
-$ sudo apt update && sudo apt upgrade -y
-```
-
 ## Setting localization
 
 - Locale
@@ -57,19 +49,31 @@ $ sudo apt update && sudo apt upgrade -y
   - Philippines
   - UTF-8
 - Timezone
+  - Manila/Philippines
 - Keyboard layout
   - Model: Logitech
   - Layout: Japanese
   - Variant: Japanese
 - WiFi country
+  - Philippines
 
 ## Time servers
 
-As there are not enough servers in Philippines timezone, it is recommended to use Asia time servers in `/etc/systemd/timesyncd.conf`:
+As there are not enough servers in Philippines timezone, date and time of OS is not synchronized with the time server. This can be confirmed by executing `date` command, which would show a wrong date and time.
+
+It is recommended to use Asia time servers in `/etc/systemd/timesyncd.conf`:
 
 ```
 [Time]
 NTP=0.asia.pool.ntp.org 1.asia.pool.ntp.org 2.asia.pool.ntp.org 3.asia.pool.ntp.org
+```
+
+## Make your system up-to-date
+
+Use [`apt`](https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html) as [`aptitude`](https://www.debian.org/doc/manuals/debian-faq/uptodate.en.html) is not the recommended tool for doing upgrade from one release to another.
+
+```bash
+$ sudo apt update && sudo apt upgrade -y
 ```
 
 ## `bash` prompt
