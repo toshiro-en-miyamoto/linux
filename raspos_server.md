@@ -57,8 +57,92 @@ tmpfs          tmpfs       799744       0    799744   0% /run/user/1000
   - Model: Logitech
   - Layout: Japanese
   - Variant: Japanese
-- WiFi country
-  - Philippines
+
+## Static IP address
+
+With Debian 12, `/etc/network/interfaces` file looks as follows:
+
+```bash
+$ cat /etc/network/interfaces
+# interfaces(5) file used by ifup(8) and ifdown(8)
+# Include files from /etc/network/interfaces.d:
+source /etc/network/interfaces.d
+```
+
+If Debian 12 for Raspberry PI 4/5 is set up without defining IP network, the directory is empty and IP addresses are not defined:
+
+```bash
+$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute 
+       valid_lft forever preferred_lft forever
+2: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether xx:xx:xx:xx:a7:1e brd ff:ff:ff:ff:ff:ff
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+```
+
+Let's define static an IP address for `eth0`.
+
+```bash
+$ cat /etc/network/interfaces.d/eth0-static
+allow-hotplug eth0
+iface eth0 inet static
+address 192.168.0.41
+network 192.168.0.0
+netmask 255.255.255.0
+broadcast 192.168.0.255
+gateway 192.168.0.1
+dns-nameservers 192.168.0.1
+```
+
+With Linux, you can use the `ip address` command to find your PC's IP address, the broadcast address, the network address, and `netmask` in your home Internet settings:
+
+```bash
+$ ip a
+1: lo: ....
+2: eth0: ....
+3: wlan0: ....
+    inet 192.168.0.18/24 brd 192.168.0.255 scope global dynamic noprefixroute wlan0
+       valid_lft 601038sec preferred_lft 601038sec
+```
+
+In the above information, you can see
+
+- your PC's IP address: 192.168.0.18
+- netmask: 24 bits (that is, 255.255.255.0)
+- broadcast address: 192.168.0.255
+- network address: 192.168.0.0 (IP addr ^ netmask)
+
+With Linux, you can use the `ip route` command to find the IP gateway address available in your home Internet settings:
+
+```bash
+$ ip r
+default via 192.168.0.1 dev wlan0 proto dhcp src 192.168.0.18 metric 600 
+192.168.0.0/24 dev wlan0 proto kernel scope link src 192.168.0.18 metric 600 
+```
+
+With Ubuntu, you can use the `resolvectl` command to find the DNS server available in your home Internet settings:
+
+```bash
+$ resolvectl status
+Global
+         Protocols: -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+  resolv.conf mode: stub
+
+Link 2 (eth0)
+    Current Scopes: none
+         Protocols: -DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+Link 3 (wlan0)
+    Current Scopes: DNS
+         Protocols: +DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+Current DNS Server: 192.168.0.1
+       DNS Servers: 192.168.0.1
+        DNS Domain: your.domain
+```
 
 ## Time servers
 
