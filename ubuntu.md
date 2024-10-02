@@ -18,7 +18,7 @@ You may need to install the following:
 $ lsb_release -a
 No LSB modules are available.
 Distributor ID:	Ubuntu
-Description:	Ubuntu 24.04 LTS
+Description:	Ubuntu 24.04.1 LTS
 Release:	24.04
 Codename:	noble
 
@@ -31,12 +31,12 @@ Python 3.12.3
 ```bash
 $ df -T
 Filesystem     Type  1K-blocks    Used Available Use% Mounted on
-tmpfs          tmpfs    812892    4008    808884   1% /run
-/dev/mmcblk0p2 ext4   28613016 7124672  20226672  27% /
-tmpfs          tmpfs   4064448       0   4064448   0% /dev/shm
+tmpfs          tmpfs    812412    3996    808416   1% /run
+/dev/mmcblk0p2 ext4   29867808 6751024  21805632  24% /
+tmpfs          tmpfs   4062056       0   4062056   0% /dev/shm
 tmpfs          tmpfs      5120      12      5108   1% /run/lock
-/dev/mmcblk0p1 vfat     516204  173106    343099  34% /boot/firmware
-tmpfs          tmpfs    812888     136    812752   1% /run/user/1002
+/dev/mmcblk0p1 vfat     516204  184523    331682  36% /boot/firmware
+tmpfs          tmpfs    812408     132    812276   1% /run/user/1002
 ```
 
 ## Basic Configurations
@@ -52,11 +52,11 @@ $ sudo apt update && sudo apt upgrade -y
 The issue is that when updates for Snap Store itself are available, Snap Store is unable to install the updates because the Snap Store process is running. Therefore, you need to kill the process before updating Snap Store:
 
 ```bash
-$ sudo sudo killall snap-store
+$ sudo killall snap-store
 snap-store: no process found
 
 $ sudo snap refresh snap-store
-snap-store (stable/ubuntu-24.04) 0+git.ec3fa65 from Canonical✓ refreshed
+snap-store (stable/ubuntu-24.04) 0+git.4fcd62b7 from Canonical✓ refreshed
 ```
 
 ### `bash` Prompt
@@ -67,15 +67,6 @@ You may want to edit `~/.bashrc` to customize the command prompt:
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\W \$\[\033[00m\] '
 PS1='${debian_chroot:+($debian_chroot)}\W\$ '
 ```
-
-### Japanese Input
-
-Ubuntu 21.04 or later installs Mozc by default, and Mozc will be activated once the Japanese Language Pack is installed. So,
-
-- open Language Support to install default language pack (English)
-- install Japanese Language Pack on Language Support window
-- restart the system to activate Mozc
-- check the top bar to see if Mozc is activated
 
 ### Removing Libre Office
 
@@ -91,6 +82,15 @@ You might find that `/etc/libreoffice` directory still remains.
 ```bash
 $ sudo rm -r /etc/libreoffice
 ```
+
+### Japanese Input
+
+Ubuntu 21.04 or later installs Mozc by default, and Mozc will be activated once the Japanese Language Pack is installed. So,
+
+- open Language Support to install default language pack (English)
+- install Japanese Language Pack on Language Support window
+- restart the system to activate Mozc
+- check the top bar to see if Mozc is activated
 
 ## Essentials for Programming
 
