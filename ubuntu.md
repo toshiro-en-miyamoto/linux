@@ -101,6 +101,28 @@ Ubuntu 21.04 or later installs Mozc by default, and Mozc will be activated once 
 - check the top bar to see if Mozc is activated
 - use Mozc Setup to change preferences
 
+### Pi-Apps (optional for Raspberry Pi)
+
+[Pi-Apps](https://pi-apps.io/) is the most popular app store for Raspberry Pi computers. 100% open-source bash scripts (including the GUI).
+
+Where do the apps come from? It depends! Some application binaries come directly from their official developer and pi-apps only has to provide a simple install/uninstall script (eg: Arduino, btop++, System Monitoring Center, GitHub CLI, Minecraft Bedrock, etc). Others are custom built and/or ported to ARM Linux by pi-apps developers and contributors (eg: GitHub Desktop, Minecraft Java Prism Launcher/GDLauncher, USBImager, MuseScore 4, etc).
+
+To install Pi-Apps
+
+```bash
+wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash
+```
+
+To uninstall
+
+```bash
+~/pi-apps/uninstall
+```
+
+Raspberry Pi 5 is fully supported with Ubuntu.
+
+Pi-Apps is required to run LMMS (Let’s Make Music) as the official builds from LMMS do not include executables for ARM64 architecture.
+
 ## Essentials for Programming
 
 ### Git
